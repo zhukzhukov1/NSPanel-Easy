@@ -1,5 +1,12 @@
 on home.load:
   back_page_id=home_page_id
+  // Two-line clock layout: keep the original time component as the data source.
+  vis time,0
+  vis meridiem,0
+  vis date,0
+  vis weather,0
+  vis outdoor_temp,0
+  clock_sync.en=1
   // restore chips
   for(sys0=11;sys0<=20;sys0++)
   {
@@ -197,6 +204,13 @@ on swipe.up:
 on swipestore.timer:
   swipex=tch0
   swipey=tch1
+
+on clock_sync.timer:
+  if(time.txt!="")
+  {
+    substr time.txt,clock_hh.txt,0,2
+    substr time.txt,clock_mm.txt,3,2
+  }
 
 on time.down:
   settings_timer.en=1
