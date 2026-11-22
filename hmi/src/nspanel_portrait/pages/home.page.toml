@@ -41,49 +41,6 @@ txt = ""
 txt_maxl = 5
 
 [[component]]
-name = "clock_hh"
-type = "text"
-vscope = 1
-x = 0
-y = 8
-w = 320
-h = 120
-sta = 0
-font = "font-11"
-bco = "#000000"
-picc = "picture-0000"
-pco = "#ffffff"
-xcen = 2
-ycen = 2
-txt = ""
-txt_maxl = 2
-
-[[component]]
-name = "clock_mm"
-type = "text"
-vscope = 1
-x = 0
-y = 132
-w = 320
-h = 120
-sta = 0
-font = "font-11"
-bco = "#000000"
-picc = "picture-0000"
-pco = "#ffffff"
-xcen = 2
-ycen = 2
-txt = ""
-txt_maxl = 2
-
-
-[[component]]
-name = "clock_sync"
-type = "timer"
-tim = 500
-en = 1
-
-[[component]]
 name = "indr_temp"
 type = "text"
 vscope = 1
@@ -815,3 +772,57 @@ vscope = 1
 sta = 1
 txt = ""
 txt_maxl = 6
+
+[[component]]
+name = "clock_hh"
+type = "text"
+vscope = 1
+x = 0
+y = 8
+w = 320
+h = 120
+sta = 0
+font = "font-11"
+bco = "#000000"
+picc = "picture-0000"
+pco = "#ffffff"
+xcen = 2
+ycen = 2
+txt = ""
+txt_maxl = 2
+
+[[component]]
+name = "clock_mm"
+type = "text"
+vscope = 1
+x = 0
+y = 132
+w = 320
+h = 120
+sta = 0
+font = "font-11"
+bco = "#000000"
+picc = "picture-0000"
+pco = "#ffffff"
+xcen = 2
+ycen = 2
+txt = ""
+txt_maxl = 2
+
+[[component]]
+name = "clock_sync"
+type = "timer"
+tim = 500
+en = 1
+
+[[component]]
+name = "nav_target"
+type = "variable"
+vscope = 1
+val = 0
+
+[[component]]
+name = "nav_timer"
+type = "timer"
+tim = 120
+en = 0
