@@ -46,3 +46,23 @@ on draw_tick.down:
   sys0-=12
   sys2+=1
   xstr sys0,sys2,24,20,@font(font-01),color_pco_navigation,0,1,1,3,tick_text.txt
+
+on swipe.down:
+  swipestore.en=1
+
+on swipe.up:
+  swipestore.en=0
+  if(tch0==0)
+  {
+    swipec=swipex-tch2
+    // From Left to Right: return to the climate control page.
+    if(swipec>swipedx)
+    {
+      home.nav_target.val=2
+      page home
+    }
+  }
+
+on swipestore.timer:
+  swipex=tch0
+  swipey=tch1
