@@ -135,3 +135,13 @@ x = 0
 y = 478
 w = 2
 h = 2
+
+[[component]]
+name = "swipe"
+type = "touch-capture"
+
+[[component]]
+name = "swipestore"
+type = "timer"
+tim = 50
+en = 0
