@@ -84,6 +84,10 @@ on home.load:
     vis left_bt_text,0
     vis right_bt_text,0
   }
+  if(nav_target.val>0)
+  {
+    nav_timer.en=1
+  }
   sendme
 
 on swipe.down:
@@ -117,26 +121,16 @@ on swipe.up:
         page buttonpage01
       }
     }
-    // Right to Left swipe now navigates to home, looping back to the start.
+    // Right to Left: open the configured climate page through the stock touch path.
     swipec2=0-swipedx
     if(swipec<swipec2)
     {
-      // Navigate back based on active status
       if(api==0)
       {
         call report_api_unavailable
-      }else if(is_buttonpage01>=1)
+      }else
       {
-        page buttonpage01
-      }else if(is_buttonpage02>=1)
-      {
-        page buttonpage02
-      }else if(is_buttonpage03>=1)
-      {
-        page buttonpage03
-      }else if(is_buttonpage04>=1)
-      {
-        page buttonpage04
+        click indr_temp,0
       }
     }
   }
@@ -209,6 +203,20 @@ on clock_sync.timer:
   {
     substr time.txt,clock_hh.txt,0,2
     substr time.txt,clock_mm.txt,3,2
+  }
+
+on nav_timer.timer:
+  nav_timer.en=0
+  sys0=nav_target.val
+  nav_target.val=0
+  if(sys0==1)
+  {
+    // CO2 is Home value 02; its stock release event opens the configured graph.
+    click value02,0
+  }else if(sys0==2)
+  {
+    // Re-enter climate through the stock indoor-temperature release event.
+    click indr_temp,0
   }
 
 on time.down:
