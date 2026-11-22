@@ -125,16 +125,17 @@ on swipe.up:
   if(tch0==0)
   {
     swipec=swipex-tch2
-    // From Left to Right
+    // From Left to Right: return to the home clock.
     if(swipec>swipedx)
     {
-      //page
+      page home
     }
-    // Right to Left
+    // Right to Left: return briefly to home and invoke the stock CO2 graph action.
     swipec2=0-swipedx
     if(swipec<swipec2)
     {
-      //page
+      home.nav_target.val=1
+      page home
     }
   }
   // Touch has ended, y
