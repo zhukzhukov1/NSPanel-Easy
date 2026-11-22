@@ -5,7 +5,6 @@ on home.load:
   vis meridiem,0
   vis date,0
   vis weather,0
-  vis outdoor_temp,0
   clock_sync.en=1
   // restore chips
   for(sys0=11;sys0<=20;sys0++)
